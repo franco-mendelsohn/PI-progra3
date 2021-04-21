@@ -1,30 +1,37 @@
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Personaje from "./components/Personaje";
-import database from "./rickandmorty.json"
+
+import database from "./database.json"
+import Tarjeta from './components/Tarjeta'
+import Header from './components/Header'
 
 
-
-
-
-function App() {
+function App (){
   return (
-    <body>
-    <div>
-    <Header/>
-    <div class="contenedor">
-    <div class="contenedor-cards">  
-    {
-       database.map(function(dato, idx) {
-        return < Personaje datos={dato} key={idx}/>
-      })
-                }
-    </div>
-    </div>
 
-    <Footer/>
-     </div>
-     </body>
-  )};
+    <div className="todo">
+
+
+      <Header/>
+
+
+      <div className="caja">
+          {database.map(function(unPersonaje, idx){
+            return (<Tarjeta 
+                    personaje = {unPersonaje} 
+                    key={idx}
+                     />)
+            }
+          )}
+      </div> 
+
+      <footer>
+        <h1>Created by: Franco Mendelsohn</h1>
+      </footer>
+
+
+    </div>     
+  );
+
+}
 
 export default App;
+
